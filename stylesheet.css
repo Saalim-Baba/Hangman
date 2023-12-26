@@ -1,0 +1,12 @@
+#Guess_Field{
+    text-align: center;
+}
+
+.letter{
+    margin-right: 5px;
+    font-size: 10vw;
+}
+
+#guess_input{
+    text-align: center;
+}
