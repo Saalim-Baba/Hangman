@@ -2,7 +2,7 @@
 <html lang='de'>
 <head>
     <meta charset='utf-8'>
-    <title>Titel</title>
+    <title>Main Game</title>
     <script src="js.js"></script>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
@@ -26,7 +26,12 @@
             <label>Hangman Guess</label>
         </section>
         <section>
-            <input type="text">
+            <input type="text" id="myInput" maxlength="1" placeholder="Enter something...">
+            <button id="guess">Submit</button>
+        </section>
+        <section>
+            <br>
+            <img id="hangman" src="./stages/stage1.png">
         </section>
     </article>
 </main>
