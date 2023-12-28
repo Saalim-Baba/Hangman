@@ -58,7 +58,7 @@ let count = 1
                         if (next_step === true) {
                             count++
                             let hangman_img = document.getElementById("hangman")
-                            hangman_img.src = `https://hangman-phi-three.vercel.app/main_game.html/stages/stage${count}.png`
+                            hangman_img.src = `./stages/stage${count}.png`
                         }
                         inputField.value = '';
                     }
