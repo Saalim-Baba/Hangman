@@ -5,6 +5,9 @@
     <title>Main Game</title>
     <script src="js.js"></script>
     <link rel="stylesheet" href="stylesheet.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 
 <body>
@@ -26,12 +29,14 @@
             <label for="myInput">Hangman Guess</label>
         </section>
         <section>
-            <input type="text" id="myInput" maxlength="1" placeholder="Enter something...">
+            <input type="text" id="myInput" maxlength="1" placeholder="Enter Letter" required>
             <button id="guess">Submit</button>
         </section>
-        <section>
+        <section id="centered">
             <br>
             <img id="hangman" src="./stage1.png" alt="among us">
+            <h1 id="used"></h1>
+            <h1 id="already_used"></h1>
         </section>
     </article>
 

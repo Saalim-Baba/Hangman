@@ -41,29 +41,64 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 }
 let count = 1
+let used = []
+
+
 
                 function useInput() {
-                    if (count < 7){
-                        let next_step = true
-                        let inputField = document.getElementById('myInput');
-                        let inputValue = inputField.value
-                        for (i=0; word_array.length > i; i++){
-                            if (inputValue === word_array[i]){
-                                arraytest[i] = inputValue
-                                delete_array()
-                                display_array()
-                                next_step = false
-                            }
+                    let inputField = document.getElementById('myInput');
+                    let error = document.getElementById("already_used");
+                    error.innerText = "";
+                    let inputValue = inputField.value;
+                    let is_used = check_used(inputValue);
+
+                    function check_used(inputValue) {
+                        if (used.includes(inputValue) || arraytest.includes(inputValue)) {
+                            error.innerText = "Already used";
+                            return true;
                         }
-                        if (next_step === true) {
-                            count++
-                            let hangman_img = document.getElementById("hangman")
-                            hangman_img.src = `./stage${count}.png`
+                        else if (inputValue === " "){
+                            error.innerText = "Already used";
+                            return true;
                         }
-                        inputField.value = '';
+                        else  if (inputValue.trim() === '') {
+                            error.innerText = "Must Fill";
+                            return true}
+
+                        else {
+                            return false;}
                     }
-                    else{
-                        alert("YOU LOST")
+
+                    if (!is_used) {
+                        check_input();
+                    }
+
+                    function check_input() {
+                        if (count < 7) {
+                            let next_step = true;
+
+                            for (let i = 0; i < word_array.length; i++) {
+                                if (inputValue === word_array[i]) {
+                                    arraytest[i] = inputValue;
+                                    delete_array();
+                                    display_array();
+                                    next_step = false;
+                                    break;
+                                }
+                            }
+
+                            if (next_step) {
+                                count++;
+                                let hangman_img = document.getElementById("hangman");
+                                hangman_img.src = `./stage${count}.png`;
+                                used.push(inputValue);
+                                document.getElementById("used").innerText = used.join(', ');
+                            }
+
+                            inputField.value = '';
+                        } else {
+                            alert("YOU LOST");
+                        }
                     }
                 }
                 let button = document.getElementById("guess")

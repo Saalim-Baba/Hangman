@@ -1,12 +1,95 @@
+
+
+
 #Guess_Field{
     text-align: center;
+    margin-left: 25vw;
 }
 
 .letter{
-    margin-right: 5px;
+    margin-right: 1vw;
     font-size: 10vw;
+    text-align: center;
+    position: relative;
+
+    width: 10vw;
 }
 
 #guess_input{
+    justify-content: center;
     text-align: center;
+}
+#Guess_Field{
+    width: 10vw;
+    justify-content: center;
+    text-align: center;
+}
+#myInput{
+    width: 8vw;
+    justify-content: center;
+}
+#guess{
+    width: 5vw;
+
+
+}
+#hangman{
+    width: 15vw;
+    justify-content: center;
+
+}
+#used{
+    font-size: 2vw;
+}
+#already_used{
+    font-size: 2vw;
+
+}
+
+@media screen and (max-width: 800px) {
+
+    #Guess_Field{
+        text-align: center;
+        margin-left: 20vw;
+    }
+
+    .letter{
+        margin-right: 1vw;
+        font-size: 10vw;
+        text-align: center;
+        position: relative;
+
+        width: 10vw;
+    }
+
+    #guess_input{
+        justify-content: center;
+        text-align: center;
+    }
+    #Guess_Field{
+        width: 10vw;
+        justify-content: center;
+        text-align: center;
+    }
+    #myInput{
+        width: 8vw;
+        justify-content: center;
+    }
+    #guess{
+        width: 20vw;
+    }
+    #hangman{
+        width: 40vw;
+        justify-content: center;
+
+    }
+    #used{
+        font-size: 7vw;
+    }
+    #already_used{
+        font-size: 6vw;
+
+
+    }
+
 }
