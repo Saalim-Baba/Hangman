@@ -51,7 +51,9 @@ let used = []
                     error.innerText = "";
                     let inputValue = inputField.value;
                     let is_used = check_used(inputValue);
-
+                    if (arraytest === word_array){
+                        alert(`YOU WIN THE WORD WAS ${wordy}`)
+                    }
                     function check_used(inputValue) {
                         if (used.includes(inputValue) || arraytest.includes(inputValue)) {
                             error.innerText = "Already used";
@@ -74,32 +76,30 @@ let used = []
                     }
 
                     function check_input() {
-                        if (count < 7) {
-                            let next_step = true;
-
+                        if (count < 8) {
+                            let found = false;
                             for (let i = 0; i < word_array.length; i++) {
                                 if (inputValue === word_array[i]) {
                                     arraytest[i] = inputValue;
-                                    delete_array();
-                                    display_array();
-                                    next_step = false;
-                                    break;
+                                    found = true;
                                 }
                             }
-
-                            if (next_step) {
+                            delete_array();
+                            display_array();
+                            if (!found) {
                                 count++;
                                 let hangman_img = document.getElementById("hangman");
                                 hangman_img.src = `./stage${count}.png`;
                                 used.push(inputValue);
                                 document.getElementById("used").innerText = used.join(', ');
                             }
-
                             inputField.value = '';
                         } else {
                             alert("YOU LOST");
                         }
+
                     }
+
                 }
                 let button = document.getElementById("guess")
                 button.addEventListener("click", useInput)
