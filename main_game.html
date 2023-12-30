@@ -17,29 +17,37 @@
 </header>
 
 <main>
-    <article>
-        <section>
-        </section>
-        <h3 id="Guess_Field"></h3>
-        <section>
-        </section>
-    </article>
-    <article id="guess_input">
-        <section>
-            <label for="myInput">Hangman Guess</label>
-        </section>
-        <section>
-            <input type="text" id="myInput" maxlength="1" placeholder="Enter Letter" required>
-            <button id="guess">Submit</button>
-        </section>
-        <section id="centered">
-            <br>
-            <img id="hangman" src="./stage1.png" alt="among us">
-            <h1 id="used"></h1>
-            <h1 id="already_used"></h1>
-        </section>
-    </article>
+    <article id="main_game">
+        <article>
+            <section>
+            </section>
 
+            <section id="Guess_Field">
+            </section>
+            <section>
+            </section>
+        </article>
+        <article id="guess_input">
+            <section>
+                <label for="myInput">Hangman Guess</label>
+            </section>
+            <section>
+                <input type="text" id="myInput" maxlength="1" placeholder="Enter Letter" required>
+                <button id="guess">Submit</button>
+            </section>
+            <section id="centered">
+                <br>
+                <img id="hangman" src="./stage1.png" alt="among us">
+                <h1 id="used"></h1>
+                <h1 id="already_used"></h1>
+            </section>
+        </article>
+    </article>
+    <article id="end_screen">
+        <h1 id="word_reveal"></h1>
+        <h1 style="text-align: center">Looks like you won, restart to play again. Thanks for playing</h1>
+
+    </article>
 </main>
 
 <footer>

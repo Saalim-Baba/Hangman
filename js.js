@@ -18,27 +18,28 @@ document.addEventListener("DOMContentLoaded", function () {
                 for (i=0; i < word_array.length; i++)(
                     arraytest.push("_")
                 )
-
+                console.log(word_array)
 
                 display_array()
-                function display_array(){
-                    console.log(word_array)
-                    console.log(arraytest)
+                function display_array() {
+                    if (JSON.stringify(arraytest) === JSON.stringify(word_array)){
+                        document.getElementById("main_game").style.display = "none"
+                        let end_screen = document.getElementById("end_screen")
+                        end_screen.style.display = "inline"
+                        document.getElementById("word_reveal").innerText = "The word was: " + wordy
+                    }
+                    console.log("Displaying array: ", arraytest);
                     arraytest.forEach(letter => {
                         const letterElement = document.createElement('span');
                         letterElement.textContent = letter;
                         letterElement.classList.add('letter');
                         guessField.appendChild(letterElement);
-
                     });
-
                 }
-                function delete_array(){
-                    arraytest.forEach(letter => {
-                        guessField.removeChild(guessField.firstChild)
-
-                    });
-
+                function delete_array() {
+                    while (guessField.firstChild) {
+                        guessField.removeChild(guessField.firstChild);
+                    }
                 }
 let count = 1
 let used = []
@@ -51,9 +52,6 @@ let used = []
                     error.innerText = "";
                     let inputValue = inputField.value;
                     let is_used = check_used(inputValue);
-                    if (arraytest === word_array){
-                        alert(`YOU WIN THE WORD WAS ${wordy}`)
-                    }
                     function check_used(inputValue) {
                         if (used.includes(inputValue) || arraytest.includes(inputValue)) {
                             error.innerText = "Already used";
