@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let startButton = document.getElementById("start");
     if (startButton) {
         startButton.addEventListener("click", function() {
-            window.location.href = 'main_game.html'; // Redirect to the game page
+            window.location.href = 'main_game.html';
         });
     }
 
@@ -27,7 +27,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         let end_screen = document.getElementById("end_screen")
                         end_screen.style.display = "inline"
                         document.getElementById("word_reveal").innerText = "The word was: " + wordy
+                        document.getElementById("end_butt").style.display = "inline"
                     }
+
                     console.log("Displaying array: ", blank_array);
                     blank_array.forEach(letter => {
                         const letterElement = document.createElement('span');
@@ -72,7 +74,7 @@ let used = []
                     }
 
                     function check_input() {
-                        if (count < 8) {
+                        if (count < 7) {
                             let found = false;
                             for (let i = 0; i < word_array.length; i++) {
                                 if (inputValue === word_array[i]) {
@@ -87,11 +89,15 @@ let used = []
                                 let hangman_img = document.getElementById("hangman");
                                 hangman_img.src = `./stage${count}.png`;
                                 used.push(inputValue);
-                                document.getElementById("used").innerText = used.join(', ');
+                                document.getElementById("wrong_guesses").innerText = used.join(', ');
                             }
                             inputField.value = '';
                         } else {
-                            alert("YOU LOST");
+                            document.getElementById("main_game").style.display = "none"
+                            let lose_screen = document.getElementById("lose_screen")
+                            lose_screen.style.display = "inline"
+                            document.getElementById("end_butt").style.display = "inline"
+                            document.getElementById("word_reveal").innerText = "The word was: " + wordy
                         }
 
                     }

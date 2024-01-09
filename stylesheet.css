@@ -20,7 +20,7 @@
     width: 8vw;
     justify-content: center;
 }
-#guess{
+#guess_button{
     width: 5vw;
 
 
@@ -30,7 +30,7 @@
     justify-content: center;
 
 }
-#used{
+#wrong_guesses{
     font-size: 2vw;
 }
 #already_used{
@@ -67,7 +67,7 @@
         width: 8vw;
         justify-content: center;
     }
-    #guess{
+    #guess_button{
         width: 20vw;
     }
     #hangman{
@@ -75,7 +75,7 @@
         justify-content: center;
 
     }
-    #used{
+    #wrong_guesses{
         font-size: 7vw;
     }
     #already_used{
@@ -101,4 +101,21 @@
 
 .top_margin{
     margin-top: 20vw;
+}
+
+#lose_screen{
+    color: red;
+    display: none;
+    font-size: 5vw;
+    -webkit-text-stroke: 2px black;
+}
+
+#lose_screen>section>img{
+    width: 15vw;
+}
+
+#end_butt{
+    display: none;
+    text-align: center;
+    align-content: center;
 }

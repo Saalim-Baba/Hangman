@@ -32,13 +32,13 @@
                 <label for="myInput">Hangman Guess</label>
             </section>
             <section>
-                <input type="text" id="myInput" maxlength="1" placeholder="Enter Letter" required>
-                <input type='submit' id='enter_submit' hidden>
+                <input type="text" id="myInput" onkeydown="return /[a-z]/i.test(event.key)" maxlength="1" placeholder="Enter Letter" required >
+                <button id="guess_button">Submit</button>
             </section>
             <section id="centered">
                 <br>
                 <img id="hangman" src="./stage1.png" alt="among us">
-                <h1 id="used"></h1>
+                <h1 id='wrong_guesses'></h1>
                 <h1 id="already_used"></h1>
             </section>
         </article>
@@ -46,9 +46,18 @@
     <article id="end_screen">
         <h1 id="word_reveal"></h1>
         <h1 class='centered'>Looks like you won, restart to play again. Thanks for playing</h1>
-        <section class='centered'>
-        <button  onclick='window.location.reload()'>Restart</button>
-        <a href='index.html'><button >Home</button></a>
+
+    </article>
+    <article id='lose_screen' class='centered'>
+       <h1>YOU LOST</h1>
+       <section class='centered'>
+           <img src='stage8.png'>
+       </section>
+    </article>
+    <article class='centered'>
+        <section id='end_butt'>
+            <button  onclick='window.location.reload()'>Restart</button>
+            <a href='index.html'><button >Home</button></a>
         </section>
     </article>
 </main>
