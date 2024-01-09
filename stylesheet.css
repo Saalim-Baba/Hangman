@@ -111,11 +111,17 @@
 }
 
 #lose_screen>section>img{
-    width: 15vw;
+    width: 10vw;
 }
 
 #end_butt{
     display: none;
     text-align: center;
     align-content: center;
+}
+
+#game_over_reveal{
+    text-align: center;
+    font-size: 5vw;
+    margin: 1vw;
 }

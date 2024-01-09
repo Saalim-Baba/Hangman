@@ -97,7 +97,7 @@ let used = []
                             let lose_screen = document.getElementById("lose_screen")
                             lose_screen.style.display = "inline"
                             document.getElementById("end_butt").style.display = "inline"
-                            document.getElementById("word_reveal").innerText = "The word was: " + wordy
+                            document.getElementById("game_over_reveal").innerText = wordy
                         }
 
                     }
