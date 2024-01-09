@@ -93,3 +93,12 @@
     font-size: 5vw;
     text-align: center;
 }
+
+.centered{
+    text-align: center;
+    justify-content: center;
+}
+
+.top_margin{
+    margin-top: 20vw;
+}

@@ -33,7 +33,7 @@
             </section>
             <section>
                 <input type="text" id="myInput" maxlength="1" placeholder="Enter Letter" required>
-                <button id="guess">Submit</button>
+                <input type='submit' id='enter_submit' hidden>
             </section>
             <section id="centered">
                 <br>
@@ -45,8 +45,11 @@
     </article>
     <article id="end_screen">
         <h1 id="word_reveal"></h1>
-        <h1 style="text-align: center">Looks like you won, restart to play again. Thanks for playing</h1>
-
+        <h1 class='centered'>Looks like you won, restart to play again. Thanks for playing</h1>
+        <section class='centered'>
+        <button  onclick='window.location.reload()'>Restart</button>
+        <a href='index.html'><button >Home</button></a>
+        </section>
     </article>
 </main>
 
