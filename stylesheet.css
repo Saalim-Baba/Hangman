@@ -33,7 +33,7 @@
 #wrong_guesses{
     font-size: 2vw;
 }
-#already_used{
+#error{
     font-size: 2vw;
 
 }
@@ -78,7 +78,7 @@
     #wrong_guesses{
         font-size: 7vw;
     }
-    #already_used{
+    #error{
         font-size: 6vw;
 
 

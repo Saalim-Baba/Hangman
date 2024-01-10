@@ -11,9 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
         fetch("https://random-word-api.vercel.app/api?words=1")
             .then(res => res.json())
             .then(json => {
-                const wordy = json[0];
+                const word = json[0];
 
-                let word_array = wordy.split('')
+                let word_array = word.split('')
                 let blank_array = []
                 for (i=0; i < word_array.length; i++)(
                     blank_array.push("_")
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         document.getElementById("main_game").style.display = "none"
                         let end_screen = document.getElementById("end_screen")
                         end_screen.style.display = "inline"
-                        document.getElementById("word_reveal").innerText = "The word was: " + wordy
+                        document.getElementById("word_reveal").innerText = "The word was: " + word
                         document.getElementById("end_butt").style.display = "inline"
                     }
 
@@ -47,7 +47,7 @@ let count = 1
 let used = []
                 function useInput() {
                     let inputField = document.getElementById('myInput');
-                    let error = document.getElementById("already_used");
+                    let error = document.getElementById("error");
                     error.innerText = "";
                     let inputValue = inputField.value;
                     inputValue = inputValue.toLowerCase()
@@ -55,14 +55,15 @@ let used = []
                     function check_used(inputValue) {
                         if (used.includes(inputValue) || blank_array.includes(inputValue)) {
                             error.innerText = "Already used";
+                            inputField.value = ""
                             return true;
                         }
                         else if (inputValue === " "){
-                            error.innerText = "Already used";
+                            error.innerText = "Must fill";
                             return true;
                         }
-                        else  if (inputValue.trim() === '') {
-                            error.innerText = "Must Fill";
+                        else  if (inputValue.trim() === "") {
+                            error.innerText = "Must fill";
                             return true}
 
                         else {
@@ -97,7 +98,7 @@ let used = []
                             let lose_screen = document.getElementById("lose_screen")
                             lose_screen.style.display = "inline"
                             document.getElementById("end_butt").style.display = "inline"
-                            document.getElementById("game_over_reveal").innerText = wordy
+                            document.getElementById("game_over_reveal").innerText = word
                         }
 
                     }
