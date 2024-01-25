@@ -59,11 +59,11 @@ let used = []
                             return true;
                         }
                         else if (inputValue === " "){
-                            error.innerText = "Must fill";
+                            error.innerText = "must fill";
                             return true;
                         }
                         else  if (inputValue.trim() === "") {
-                            error.innerText = "Must fill";
+                            error.innerText = "must fill";
                             return true}
 
                         else {
@@ -88,7 +88,8 @@ let used = []
                             if (!found) {
                                 count++;
                                 let hangman_img = document.getElementById("hangman");
-                                hangman_img.src = `./stage${count}.png`;
+                                hangman_img.src = `./images/stage${count}.png`;
+                                hangman_img.width = 200
                                 used.push(inputValue);
                                 document.getElementById("wrong_guesses").innerText = used.join(', ');
                             }

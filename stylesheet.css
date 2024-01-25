@@ -1,6 +1,5 @@
 
 
-
 .letter{
     font-size: 8vw;
     margin: 0.6vw
@@ -26,8 +25,10 @@
 
 }
 #hangman{
-    width: 15vw;
-    justify-content: center;
+    width: 50vw;
+    object-fit: contain;
+
+
 
 }
 #wrong_guesses{
@@ -73,6 +74,7 @@
     #hangman{
         width: 40vw;
         justify-content: center;
+        object-fit: contain;
 
     }
     #wrong_guesses{
