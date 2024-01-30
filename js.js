@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         end_screen.style.display = "inline"
                         document.getElementById("word_reveal").innerText = "The word was: " + word
                         document.getElementById("end_butt").style.display = "inline"
-                        if (count < localStorage.getItem("high"))
+                        if (count > localStorage.getItem("high"))
                             localStorage.setItem("high", (8-(count-1)))
                         document.getElementById("high_score").innerText = "Highscore: " + localStorage.getItem("high")
                     }
