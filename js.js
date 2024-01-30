@@ -49,6 +49,19 @@ document.addEventListener("DOMContentLoaded", function () {
                         guessField.removeChild(guessField.firstChild);
                     }
                 }
+                document.getElementById("give_up").addEventListener("click", function give_up(){
+                    count = 8
+                    document.getElementById("main_game").style.display = "none"
+                    let lose_screen = document.getElementById("lose_screen")
+                    document.getElementById("lose_title").innerText = "YOU GAVE UP"
+                    lose_screen.style.display = "inline"
+                    document.getElementById("end_butt").style.display = "inline"
+                    document.getElementById("game_over_reveal").innerText = word
+
+
+
+                })
+
 let count = 1
 let used = []
                 function useInput() {
@@ -102,6 +115,8 @@ let used = []
                             }
                             inputField.value = '';
                         } else {
+
+
                             document.getElementById("main_game").style.display = "none"
                             let lose_screen = document.getElementById("lose_screen")
                             lose_screen.style.display = "inline"
@@ -120,11 +135,15 @@ let used = []
                     if (event.key === "Enter") {
                         event.preventDefault();
                         document.getElementById("guess_button").click();
+
                     }
-                });
+
+                    })
+               ;
 
 
             })
             .catch(error => console.error('Fetch Error:', error));
     }
+
 });
