@@ -12,15 +12,20 @@
 
 <body>
 <header>
-    <nav>
+    <nav >
+        <section id='score'>
+
+    </section>
+        <section id='high_score'>
+
+        </section>
+
     </nav>
 </header>
 
 <main>
     <article id="main_game">
         <article>
-            <section>
-            </section>
 
             <section id="Guess_Field">
             </section>
@@ -30,7 +35,7 @@
                 <label for="myInput">Hangman Guess</label>
             </section>
             <section>
-                <input type="text" id="myInput" onkeydown="return /[a-z]/i.test(event.key)" maxlength="1" placeholder="Enter Letter" required autofocus >
+                <input type="text" id="myInput" onkeydown="return /[a-z]/i.test(event.key)" maxlength="1" placeholder="Enter Letter" required autofocus autocomplete="off" >
                 <button id="guess_button">Submit</button>
             </section>
             <section id="centered">
@@ -47,7 +52,7 @@
 
     </article>
     <article id='lose_screen' class='centered'>
-       <h1>YOU LOST</h1>
+       <h1 id='lose_title'>YOU LOST</h1>
        <section class='centered'>
 
            <img src='stage8.png' alt='hangman game over'>

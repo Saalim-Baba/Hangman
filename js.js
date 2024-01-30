@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(res => res.json())
             .then(json => {
                 const word = json[0];
+                document.getElementById("high_score").innerText = "Highscore: " + localStorage.getItem("high" )
+                document.getElementById("score").innerText = "Lives: " + 8
+
 
                 let word_array = word.split('')
                 let blank_array = []
@@ -28,6 +31,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         end_screen.style.display = "inline"
                         document.getElementById("word_reveal").innerText = "The word was: " + word
                         document.getElementById("end_butt").style.display = "inline"
+                        if (count < localStorage.getItem("high"))
+                            localStorage.setItem("high", (8-(count-1)))
+                        document.getElementById("high_score").innerText = "Highscore: " + localStorage.getItem("high")
                     }
 
                     console.log("Displaying array: ", blank_array);
@@ -54,7 +60,7 @@ let used = []
                     let is_used = check_used(inputValue);
                     function check_used(inputValue) {
                         if (used.includes(inputValue) || blank_array.includes(inputValue)) {
-                            error.innerText = "Already used";
+                            error.innerText = "already used";
                             inputField.value = ""
                             return true;
                         }
@@ -87,6 +93,7 @@ let used = []
                             display_array();
                             if (!found) {
                                 count++;
+                                document.getElementById("score").innerText = "Lives: " + (8-(count-1))
                                 let hangman_img = document.getElementById("hangman");
                                 hangman_img.src = `./images/stage${count}.png`;
                                 hangman_img.width = 200
@@ -100,6 +107,7 @@ let used = []
                             lose_screen.style.display = "inline"
                             document.getElementById("end_butt").style.display = "inline"
                             document.getElementById("game_over_reveal").innerText = word
+
                         }
 
                     }
