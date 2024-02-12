@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+
     let guessField = document.getElementById("Guess_Field");
     if (guessField) {
         fetch("https://random-word-api.vercel.app/api?words=1")
@@ -37,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
 
                     console.log("Displaying array: ", blank_array);
+
                     blank_array.forEach(letter => {
                         const letterElement = document.createElement('span');
                         letterElement.textContent = letter;
@@ -49,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         guessField.removeChild(guessField.firstChild);
                     }
                 }
-                document.getElementById("give_up").addEventListener("click", function give_up(){
+                function lose(){
                     count = 8
                     document.getElementById("main_game").style.display = "none"
                     let lose_screen = document.getElementById("lose_screen")
@@ -58,12 +60,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     document.getElementById("end_butt").style.display = "inline"
                     document.getElementById("game_over_reveal").innerText = word
 
+                }
+                document.getElementById("give_up").addEventListener("click", lose)
 
-
-                })
-
-let count = 1
+let count = 0
 let used = []
+
                 function useInput() {
                     let inputField = document.getElementById('myInput');
                     let error = document.getElementById("error");
@@ -94,7 +96,7 @@ let used = []
                     }
 
                     function check_input() {
-                        if (count < 7) {
+                        if (count < 8) {
                             let found = false;
                             for (let i = 0; i < word_array.length; i++) {
                                 if (inputValue === word_array[i]) {
@@ -106,17 +108,19 @@ let used = []
                             display_array();
                             if (!found) {
                                 count++;
-                                document.getElementById("score").innerText = "Lives: " + (8-(count-1))
+                                console.log(count)
+                                document.getElementById("score").innerText = "Lives: " + (8-(count))
                                 let hangman_img = document.getElementById("hangman");
                                 hangman_img.src = `./images/stage${count}.png`;
                                 hangman_img.width = 200
                                 used.push(inputValue);
                                 document.getElementById("wrong_guesses").innerText = used.join(', ');
+                                if (count === 8){
+                                    lose()
+                                }
                             }
                             inputField.value = '';
                         } else {
-
-
                             document.getElementById("main_game").style.display = "none"
                             let lose_screen = document.getElementById("lose_screen")
                             lose_screen.style.display = "inline"
