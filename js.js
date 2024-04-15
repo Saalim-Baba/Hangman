@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 display_array()
                 function display_array() {
-                    if (JSON.stringify(arraytest) === JSON.stringify(word_array)){
+                    if (JSON.stringify(arraytest) === JSON.stringify(word_array)){han
                         document.getElementById("main_game").style.display = "none"
                         let end_screen = document.getElementById("end_screen")
                         end_screen.style.display = "inline"
@@ -87,7 +87,7 @@ let used = []
                             if (!found) {
                                 count++;
                                 let hangman_img = document.getElementById("hangman");
-                                hangman_img.src = `./stage${count}.png`;
+                                hangman_img.src = `./stages/stage${count}.png`;
                                 used.push(inputValue);
                                 document.getElementById("used").innerText = used.join(', ');
                             }
