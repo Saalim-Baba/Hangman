@@ -12,19 +12,30 @@
 
 <body>
 <header>
-    <nav>
+    <nav >
+        <section id='score'>
+
+        </section>
+        <section id='high_score'>
+
+        </section>
+        <section>
+            <button id='give_up'>Give up</button>
+
+        </section>
+        <section id='home'>
+            <a href='index.html'><button>Home</button></a>
+
+        </section>
+
     </nav>
 </header>
 
 <main>
     <article id="main_game">
         <article>
-            <section>
-            </section>
 
             <section id="Guess_Field">
-            </section>
-            <section>
             </section>
         </article>
         <article id="guess_input">
@@ -32,21 +43,35 @@
                 <label for="myInput">Hangman Guess</label>
             </section>
             <section>
-                <input type="text" id="myInput" maxlength="1" placeholder="Enter Letter" required>
-                <button id="guess">Submit</button>
+                <input type="text" id="myInput" onkeydown="return /[a-z]/i.test(event.key)" maxlength="1" placeholder="Enter Letter" required autofocus autocomplete="off" >
+                <button id="guess_button">Submit</button>
             </section>
             <section id="centered">
                 <br>
-                <img id="hangman" src="./stages/stage1.png" alt="among us">
-                <h1 id="used"></h1>
-                <h1 id="already_used"></h1>
+                <img id="hangman" src="images/stage1.png" alt="among us">
+                <h1 id='wrong_guesses'></h1>
+                <h1 id="error"></h1>
             </section>
         </article>
     </article>
     <article id="end_screen">
         <h1 id="word_reveal"></h1>
-        <h1 style="text-align: center">Looks like you won, restart to play again. Thanks for playing</h1>
+        <h1 class='centered'>Looks like you won, restart to play again. Thanks for playing</h1>
 
+    </article>
+    <article id='lose_screen' class='centered'>
+        <h1 id='lose_title'>YOU LOST</h1>
+        <section class='centered'>
+
+            <img src='./stages/stage1.png' alt='hangman game over'>
+        </section>
+    </article>
+    <h4 id='game_over_reveal'></h4>
+    <article class='centered'>
+        <section id='end_butt'>
+            <button  onclick='window.location.reload()'>Restart</button>
+
+        </section>
     </article>
 </main>
 

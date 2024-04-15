@@ -2,34 +2,44 @@ document.addEventListener("DOMContentLoaded", function () {
     let startButton = document.getElementById("start");
     if (startButton) {
         startButton.addEventListener("click", function() {
-            window.location.href = 'main_game.html'; // Redirect to the game page
+            window.location.href = 'main_game.html';
         });
     }
+
 
     let guessField = document.getElementById("Guess_Field");
     if (guessField) {
         fetch("https://random-word-api.vercel.app/api?words=1")
             .then(res => res.json())
             .then(json => {
-                const wordy = json[0];
+                const word = json[0];
+                document.getElementById("high_score").innerText = "Highscore: " + localStorage.getItem("high" )
+                document.getElementById("score").innerText = "Lives: " + 8
 
-                let word_array = wordy.split('')
-                let arraytest = []
+
+                let word_array = word.split('')
+                let blank_array = []
                 for (i=0; i < word_array.length; i++)(
-                    arraytest.push("_")
+                    blank_array.push("_")
                 )
                 console.log(word_array)
 
                 display_array()
                 function display_array() {
-                    if (JSON.stringify(arraytest) === JSON.stringify(word_array)){han
+                    if (JSON.stringify(blank_array) === JSON.stringify(word_array)){
                         document.getElementById("main_game").style.display = "none"
                         let end_screen = document.getElementById("end_screen")
                         end_screen.style.display = "inline"
-                        document.getElementById("word_reveal").innerText = "The word was: " + wordy
+                        document.getElementById("word_reveal").innerText = "The word was: " + word
+                        document.getElementById("end_butt").style.display = "inline"
+                        if (count > localStorage.getItem("high"))
+                            localStorage.setItem("high", (8-(count-1)))
+                        document.getElementById("high_score").innerText = "Highscore: " + localStorage.getItem("high")
                     }
-                    console.log("Displaying array: ", arraytest);
-                    arraytest.forEach(letter => {
+
+                    console.log("Displaying array: ", blank_array);
+
+                    blank_array.forEach(letter => {
                         const letterElement = document.createElement('span');
                         letterElement.textContent = letter;
                         letterElement.classList.add('letter');
@@ -41,28 +51,40 @@ document.addEventListener("DOMContentLoaded", function () {
                         guessField.removeChild(guessField.firstChild);
                     }
                 }
-let count = 1
-let used = []
+                function lose(){
+                    count = 8
+                    document.getElementById("main_game").style.display = "none"
+                    let lose_screen = document.getElementById("lose_screen")
+                    document.getElementById("lose_title").innerText = "YOU GAVE UP"
+                    lose_screen.style.display = "inline"
+                    document.getElementById("end_butt").style.display = "inline"
+                    document.getElementById("game_over_reveal").innerText = word
 
+                }
+                document.getElementById("give_up").addEventListener("click", lose)
 
+                let count = 0
+                let used = []
 
                 function useInput() {
                     let inputField = document.getElementById('myInput');
-                    let error = document.getElementById("already_used");
+                    let error = document.getElementById("error");
                     error.innerText = "";
                     let inputValue = inputField.value;
+                    inputValue = inputValue.toLowerCase()
                     let is_used = check_used(inputValue);
                     function check_used(inputValue) {
-                        if (used.includes(inputValue) || arraytest.includes(inputValue)) {
-                            error.innerText = "Already used";
+                        if (used.includes(inputValue) || blank_array.includes(inputValue)) {
+                            error.innerText = "already used";
+                            inputField.value = ""
                             return true;
                         }
                         else if (inputValue === " "){
-                            error.innerText = "Already used";
+                            error.innerText = "must fill";
                             return true;
                         }
-                        else  if (inputValue.trim() === '') {
-                            error.innerText = "Must Fill";
+                        else  if (inputValue.trim() === "") {
+                            error.innerText = "must fill";
                             return true}
 
                         else {
@@ -78,7 +100,7 @@ let used = []
                             let found = false;
                             for (let i = 0; i < word_array.length; i++) {
                                 if (inputValue === word_array[i]) {
-                                    arraytest[i] = inputValue;
+                                    blank_array[i] = inputValue;
                                     found = true;
                                 }
                             }
@@ -86,23 +108,46 @@ let used = []
                             display_array();
                             if (!found) {
                                 count++;
+                                console.log(count)
+                                document.getElementById("score").innerText = "Lives: " + (8-(count))
                                 let hangman_img = document.getElementById("hangman");
                                 hangman_img.src = `./stages/stage${count}.png`;
+                                hangman_img.width = 200
                                 used.push(inputValue);
-                                document.getElementById("used").innerText = used.join(', ');
+                                document.getElementById("wrong_guesses").innerText = used.join(', ');
+                                if (count === 8){
+                                    lose()
+                                }
                             }
                             inputField.value = '';
                         } else {
-                            alert("YOU LOST");
+                            document.getElementById("main_game").style.display = "none"
+                            let lose_screen = document.getElementById("lose_screen")
+                            lose_screen.style.display = "inline"
+                            document.getElementById("end_butt").style.display = "inline"
+                            document.getElementById("game_over_reveal").innerText = word
+
                         }
 
                     }
 
                 }
-                let button = document.getElementById("guess")
-                button.addEventListener("click", useInput)
+                let guess_button = document.getElementById("guess_button")
+                guess_button.addEventListener("click", useInput)
+                let enter = document.getElementById("myInput")
+                enter.addEventListener("keypress", function (event){
+                    if (event.key === "Enter") {
+                        event.preventDefault();
+                        document.getElementById("guess_button").click();
+
+                    }
+
+                })
+                ;
+
 
             })
             .catch(error => console.error('Fetch Error:', error));
     }
+
 });

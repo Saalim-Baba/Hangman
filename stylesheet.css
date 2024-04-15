@@ -1,12 +1,17 @@
-
-
-
+body{
+    overflow: hidden;
+}
+#main_game{
+    margin-top: -4vw;
+}
 .letter{
     font-size: 8vw;
     margin: 0.6vw
 }
 
 #guess_input{
+    margin-top: -4vw;
+
     justify-content: center;
     text-align: center;
 }
@@ -20,20 +25,22 @@
     width: 8vw;
     justify-content: center;
 }
-#guess{
+#guess_button{
     width: 5vw;
 
 
 }
 #hangman{
-    width: 15vw;
-    justify-content: center;
+    width: 50vw;
+    object-fit: contain;
+
+
 
 }
-#used{
+#wrong_guesses{
     font-size: 2vw;
 }
-#already_used{
+#error{
     font-size: 2vw;
 
 }
@@ -67,18 +74,19 @@
         width: 8vw;
         justify-content: center;
     }
-    #guess{
+    #guess_button{
         width: 20vw;
     }
     #hangman{
         width: 40vw;
         justify-content: center;
+        object-fit: contain;
 
     }
-    #used{
+    #wrong_guesses{
         font-size: 7vw;
     }
-    #already_used{
+    #error{
         font-size: 6vw;
 
 
@@ -93,3 +101,48 @@
     font-size: 5vw;
     text-align: center;
 }
+
+.centered{
+    text-align: center;
+    justify-content: center;
+    margin-top: -2vw;
+
+}
+
+
+#lose_screen{
+    color: red;
+    display: none;
+    font-size: 5vw;
+    margin-top: -10vw;
+    -webkit-text-stroke: 2px black;
+}
+
+#lose_screen>section>img{
+    width: 10vw;
+
+}
+
+#end_butt{
+    display: none;
+    text-align: center;
+    align-content: center;
+
+}
+
+#game_over_reveal{
+    text-align: center;
+    font-size: 5vw;
+    margin-top: -2vw;
+}
+
+nav{
+    font-size: 1.4vw;
+    margin: 0;
+}
+
+#lose_title{
+    margin-top: -2vw;
+
+}
+
