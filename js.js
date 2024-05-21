@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             count++;
                             document.getElementById("score").innerText = "Lives: " + (8 - count);
                             let hangmanImg = document.getElementById("hangman");
-                            hangmanImg.src = `./images/stage${count}.png`;
+                            hangmanImg.src = `./images/stage${count+1}.png`;
                             usedLetters.push(inputValue);
                             document.getElementById("wrong_guesses").innerText = usedLetters.join(', ');
                             if (count === 8) {
