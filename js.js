@@ -31,8 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         endScreen.style.display = "inline";
                         document.getElementById("word_reveal").innerText = "The word was: " + word;
                         document.getElementById("end_butt").style.display = "inline";
-                        if (count > localStorage.getItem("high")) {
-                            localStorage.setItem("high", 8 - (count - 1));
+                        if((8-count) > parseInt(localStorage.getItem("high"))){
+                            localStorage.setItem("high", 8-count);
                         }
                         document.getElementById("high_score").innerText = "Highscore: " + localStorage.getItem("high");
                     }
@@ -52,12 +52,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     count = 8;
                     document.getElementById("main_game").style.display = "none";
                     let loseScreen = document.getElementById("lose_screen");
-                    document.getElementById("lose_title").innerText = "YOU GAVE UP";
                     loseScreen.style.display = "inline";
                     document.getElementById("end_butt").style.display = "inline";
                     document.getElementById("game_over_reveal").innerText = word;
                 }
 
+                function give_up(){
+                    document.getElementById("lose_title").innerText = "YOU GAVE UP";
+                }
+
+                document.getElementById("give_up").addEventListener("click", give_up);
                 document.getElementById("give_up").addEventListener("click", lose);
 
                 function useInput() {
