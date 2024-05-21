@@ -1,6 +1,5 @@
 body {
     overflow: hidden;
-    background-color: #f0f8ff;
     font-family: 'Arial', sans-serif;
     display: flex;
     flex-direction: column;
@@ -9,6 +8,7 @@ body {
     height: 100vh;
     margin: 0;
     position: relative;
+    background-color: #bcd5e3;
 }
 
 h1 {
