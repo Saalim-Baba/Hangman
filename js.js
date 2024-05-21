@@ -52,6 +52,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 function lose() {
                     count = 8;
                     document.getElementById("main_game").style.display = "none";
+                    document.getElementById("give_up").style.display = "none";
+
                     let loseScreen = document.getElementById("lose_screen");
                     loseScreen.style.display = "inline";
                     document.getElementById("end_butt").style.display = "inline";
