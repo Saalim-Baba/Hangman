@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 function displayArray() {
                     if (JSON.stringify(blankArray) === JSON.stringify(wordArray)) {
                         document.getElementById("main_game").style.display = "none";
+                        document.querySelector("nav").style.display = "none";
                         let endScreen = document.getElementById("end_screen");
                         endScreen.style.display = "inline";
                         document.getElementById("word_reveal").innerText = "The word was: " + word;

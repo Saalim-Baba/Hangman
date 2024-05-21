@@ -94,7 +94,7 @@ h1 {
     color: red;
     display: none;
     font-size: 5vw;
-    margin-top: -10vw;
+    margin-top: -9vw;
     -webkit-text-stroke: 2px black;
 }
 
@@ -111,12 +111,14 @@ h1 {
 #game_over_reveal {
     text-align: center;
     font-size: 5vw;
-    margin-top: -2vw;
+    margin-top: -1vw;
+    margin-bottom: 2vw;
+
 }
 
 nav {
     font-size: 1.4vw;
-    margin: 0;
+    margin-left: 2vw;
     position: absolute;
     left: 0;
     top: 50%;
@@ -128,7 +130,7 @@ nav {
 }
 
 #lose_title {
-    margin-top: -2vw;
+    margin-top: 2vw;
 }
 
 button {
