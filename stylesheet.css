@@ -23,7 +23,12 @@ h1 {
     font-size: 8vw;
     margin: 0.6vw;
 }
-
+#game_over_img{
+    width: 50vw;
+    border: 1vw black solid;
+    margin-top: -3vw;
+    margin-bottom: 1vw
+}
 #guess_input {
     margin-top: -4vw;
     justify-content: center;
@@ -83,6 +88,7 @@ h1 {
 
 #error {
     font-size: 2vw;
+    color: darkred;
 }
 
 #end_screen {
@@ -122,9 +128,10 @@ h1 {
 
 #game_over_reveal {
     text-align: center;
-    font-size: 5vw;
+    font-size: 3vw;
     margin-top: -1vw;
-    margin-bottom: 2vw;
+    margin-bottom: 3vw;
+
 
 }
 
@@ -142,7 +149,7 @@ nav {
 }
 
 #lose_title {
-    margin-top: 2vw;
+    margin-top: -3vw;
 }
 
 button {

@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     let inputValue = inputField.value.trim().toLowerCase();
 
                     if (!inputValue || usedLetters.includes(inputValue) || blankArray.includes(inputValue)) {
-                        error.innerText = inputValue ? "Already used" : "Must fill";
+                        error.innerText = inputValue ? "already used" : "must fill text-field";
                         inputField.value = "";
                         return;
                     }
