@@ -1,7 +1,7 @@
 <!doctype html>
-<html lang='de'>
+<html lang="de">
 <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <title>Hangman</title>
     <script src="js.js"></script>
     <link rel="stylesheet" href="stylesheet.css">
@@ -13,15 +13,17 @@
 <body>
 <header>
     <nav>
-        <section id='score'>
-        </section>
-        <section id='high_score'>
-        </section>
-        <section>
-            <button id='give_up'>Give up</button>
-        </section>
-        <section id='home'>
-            <a href='index.html'><button>Home</button></a>
+        <article id="game_stats">
+            <section id="score">
+            </section>
+            <section id="high_score">
+            </section>
+            <section>
+                <button id="give_up">Give up</button>
+            </section>
+        </article>
+        <section id="home">
+            <a href="index.html"><button>Home</button></a>
         </section>
     </nav>
 </header>
@@ -30,7 +32,7 @@
     <article id="main_game">
         <article>
 
-            <section id="Guess_Field">
+            <section id="guess_field">
             </section>
         </article>
         <article id="guess_input">
@@ -44,26 +46,29 @@
             <section id="centered">
                 <br>
                 <img id="hangman" src="images/stage1.png" alt="stages of hangman">
-                <h1 id='wrong_guesses'></h1>
+                <div id='warnings'>
+                    <h1>Wrong letters:</h1>
+                    <h3 id="wrong_guesses"></h3>
+                </div>
                 <h1 id="error"></h1>
             </section>
         </article>
     </article>
     <article id="end_screen">
         <h1 id="word_reveal"></h1>
-        <h1 class='centered'>Looks like you won, restart to play again. Thanks for playing</h1>
+        <h1 class="centered">Looks like you won, restart to play again. Thanks for playing</h1>
 
     </article>
-    <article id='lose_screen' class='centered'>
-        <h1 id='lose_title'>YOU LOST</h1>
-        <section class='centered'>
-            <img src='./images/game_over.png' alt='hangman game over' style='width: 50vw; border: 1vw black solid'>
+    <article id="lose_screen" class="centered">
+        <h1 id="lose_title">YOU LOST</h1>
+        <section class="centered">
+            <img src="./images/game_over.png" alt="hangman game over" style="width: 50vw; border: 1vw black solid">
         </section>
     </article>
-    <h4 id='game_over_reveal'></h4>
-    <article class='centered'>
-        <section id='end_butt'>
-            <button  onclick='window.location.reload()'>Restart</button>
+    <h4 id="game_over_reveal"></h4>
+    <article class="centered">
+        <section id="end_butt">
+            <button  onclick="window.location.reload()">Restart</button>
         </section>
     </article>
 </main>

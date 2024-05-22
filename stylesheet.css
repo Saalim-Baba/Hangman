@@ -1,5 +1,4 @@
 body {
-    overflow: hidden;
     font-family: 'Arial', sans-serif;
     display: flex;
     flex-direction: column;
@@ -31,7 +30,7 @@ h1 {
     text-align: center;
 }
 
-#Guess_Field {
+#guess_field {
     justify-content: center;
     text-align: center;
     margin-bottom: 7vw;
@@ -64,9 +63,22 @@ h1 {
     object-fit: contain;
     border: 1vw solid black;
 }
+#wrong_guesses{
+    font-size: 1vw;
+    padding-bottom: 1vw;
+}
+#warnings {
 
-#wrong_guesses {
-    font-size: 2vw;
+    font-size: 1.4vw;
+    margin-right: 2vw;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #f0f8ff;
+    padding: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }
 
 #error {
@@ -164,7 +176,7 @@ button:hover {
 }
 
 @media screen and (max-width: 800px) {
-    #Guess_Field {
+    #guess_field {
         text-align: center;
         margin-left: 20vw;
     }
@@ -182,7 +194,7 @@ button:hover {
         text-align: center;
     }
 
-    #Guess_Field {
+    #guess_field {
         width: 10vw;
         justify-content: center;
         text-align: center;

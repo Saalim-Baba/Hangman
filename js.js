@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    let guessField = document.getElementById("Guess_Field");
+    let guessField = document.getElementById("guess_field");
     if (guessField) {
         fetch("https://random-word-api.vercel.app/api?words=1")
             .then(res => res.json())
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 function displayArray() {
                     if (JSON.stringify(blankArray) === JSON.stringify(wordArray)) {
                         document.getElementById("main_game").style.display = "none";
-                        document.querySelector("nav").style.display = "none";
+                        document.getElementById("game_stats").style.display = "none";
                         let endScreen = document.getElementById("end_screen");
                         endScreen.style.display = "inline";
                         document.getElementById("word_reveal").innerText = "The word was: " + word;
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 function lose() {
                     count = 8;
                     document.getElementById("main_game").style.display = "none";
-                    document.getElementById("give_up").style.display = "none";
+                    document.getElementById("game_stats").style.display = "none";
 
                     let loseScreen = document.getElementById("lose_screen");
                     loseScreen.style.display = "inline";
